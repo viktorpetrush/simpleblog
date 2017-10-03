@@ -1,0 +1,25 @@
+<div class="container">
+  <h1><%= @category.name %></h1>
+  <div><%= @category.description %></div>
+  <div class="links">
+    <%= link_to "Categories", categories_path %> | 
+    <%= link_to "Edit Category", edit_category_path(@category) %> | 
+    <%= link_to "Delete Category", @category, method: :delete %>
+  </div>
+  <br>
+  <ul class="posts-list">
+    <% @category.posts.each do |post| %>
+      <li><%= link_to post.name, category_post_path(@category, post) %></li>
+    <% end %>
+  </ul>
+  <br>
+  <div class="category-comments">
+    <% @category.comments.each do |comment| %>
+      <div class="comment" data-comment-id="<%= comment.id %>">
+        <h2 class="comment-author"><%= comment.author %></h2>
+        <p class="comment-date"><%= comment.created_at %></p>
+        <p class="comment-content"><%= comment.content %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
