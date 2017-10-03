@@ -1,0 +1,8 @@
+<div class="container">
+  <h1 class="text-center">Edit Post</h1>
+  
+  <%= render "form", post: @post %>
+
+  <%= link_to "Show", category_post_path(@post.category, @post) %> | 
+  <%= link_to "Back", @post.category  %>
+</div>

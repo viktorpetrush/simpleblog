@@ -1,0 +1,9 @@
+<div class="container  <%= controller_name %>-<%= action_name %>">
+  <h1 class="text-center"><%= @post.name %></h1>
+  <p><%= @post.content %></p>
+  <p class="links">
+    <%= link_to "Back", @post.category %> | 
+    <%= link_to "Edit", edit_category_post_path(@post.category, @post) %> | 
+    <%= link_to "Delete", category_post_path(@post.category, @post), method: :delete, data: {confirm: "Do you realy want to delete this post?"} %>
+  </p>
+</div>
