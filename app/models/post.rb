@@ -4,4 +4,6 @@ class Post < ApplicationRecord
 
   validates :name, presence: true
   validates :content, presence: true
+
+  mount_uploader :file, FileUploader
 end
