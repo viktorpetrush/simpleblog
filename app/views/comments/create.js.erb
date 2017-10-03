@@ -1,0 +1,9 @@
+<% if @comment.errors.any? %>
+  $(".new-comment-form").find(".comment-errors").append("Errors: <%= j @comment.errors.full_messages.join("; ") %>");
+<% else %>
+  $(".comments").append("<%= j render("comments/comment", comment: @comment) %>");
+  $(".new-comment-form").hide();
+  $(".new-comment-form").find("input[type='text']").val("");
+  $(".new-comment-form").find(".comment-errors").text("");
+<% end %>
+

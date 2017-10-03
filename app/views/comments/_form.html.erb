@@ -1,0 +1,19 @@
+<div class="new-comment-form">
+  <%= form_with(model: object) do |form| %>
+    <div class="comment-errors"></div>
+
+    <%= form.hidden_field :commentable_type, value: object.commentable_type %>
+    <%= form.hidden_field :commentable_id, value: object.commentable_id %>
+
+    <div class="form-group">
+      <%= form.text_field :author, class: "form-control", placeholder: "Enter your name" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.text_field :content, class: "form-control"  %>
+    </div>
+
+    <%= form.submit "Add comment" %>
+    
+  <% end %>
+</div>

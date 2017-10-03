@@ -14,13 +14,9 @@
     <% end %>
   </ul>
   <br>
-  <div class="category-comments">
-    <% @category.comments.each do |comment| %>
-      <div class="comment" data-comment-id="<%= comment.id %>">
-        <h2 class="comment-author"><%= comment.author %></h2>
-        <p class="comment-date"><%= comment.created_at %></p>
-        <p class="comment-content"><%= comment.content %></p>
-      </div>
-    <% end %>
+  <div class="comments">
+    <%= render @category.comments if @category.comments.present? %>
   </div>
+  <p><%= link_to "Add comment", "#", class: "add-comment" %></p>
+  <%= render "comments/form", object: @comment = @category.comments.build %>
 </div>
